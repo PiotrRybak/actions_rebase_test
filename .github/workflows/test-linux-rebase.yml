@@ -23,6 +23,8 @@ jobs:
         run: |
           git config user.name "$(git log -1 --pretty=format:%an)"
           git config user.email "$(git log -1 --pretty=format:%ae)"
-          git rebase ${{ github.base_ref }}
+          git remote add upstream https://github.com/PiotrRybak/actions_rebase_test
+          git fetch upstream
+          git rebase upstream/${{ github.base_ref }}
       - name: Test
         run: node test.js
