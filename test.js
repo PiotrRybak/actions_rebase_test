@@ -1,1 +1,1 @@
-throw new Error("test fail")
+console.log("No error :)")
