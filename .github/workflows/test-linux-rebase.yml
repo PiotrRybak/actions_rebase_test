@@ -6,7 +6,6 @@ on:
   push:
     branches:
       - main
-
 jobs:
   test-linux-rebase:
     if: github.event.pull_request.draft == false
@@ -23,6 +22,6 @@ jobs:
         run: |
           git config user.name "$(git log -1 --pretty=format:%an)"
           git config user.email "$(git log -1 --pretty=format:%ae)"
-          git rebase origin/main
+          git rebase $GITHUB_HEAD_REF
       - name: Test
         run: node test.js
