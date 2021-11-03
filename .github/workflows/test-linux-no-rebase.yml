@@ -10,7 +10,7 @@ on:
       - main
 
 jobs:
-  test-linux:
+  test-linux-no-rebase:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
