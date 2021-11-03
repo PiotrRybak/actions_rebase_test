@@ -20,6 +20,9 @@ jobs:
           node-version: '17'
       - name: Rebase
       # this should really be the branch targetted by push request
-        run: git rebase origin/main
+        run: |
+          git config user.name "$(git log -1 --pretty=format:%an)"
+          git config user.email "$(git log -1 --pretty=format:%ae)"
+          git rebase origin/main
       - name: Test
         run: node test.js
