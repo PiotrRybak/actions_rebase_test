@@ -20,6 +20,6 @@ jobs:
           node-version: '17'
       - name: Rebase
       # this should really be the branch targetted by push request
-        run: git rebase main
+        run: git rebase origin/main
       - name: Test
         run: node test.js
